@@ -32,7 +32,6 @@ class Checkers
     end
   end
 
-
-
-
 end
+
+game = Checkers.new('player1', 'player2')
