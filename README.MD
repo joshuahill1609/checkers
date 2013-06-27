@@ -34,7 +34,8 @@ My notes:
 #class Piece
   !creates an object of the piece
   !is_king?
-  #changes king flag to true
+  !changes king flag to true
+  !allows kings to move backwards & forwards
   !valid_pos? - checks if a location is on board
   !generates possible moves for the piece
     !slide_moves
@@ -52,3 +53,4 @@ My notes:
 #class Checkers
   !start game
   #run game loop
+  #stops game

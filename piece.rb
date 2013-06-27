@@ -14,12 +14,19 @@ class Piece
     moves = []
     if flag
       forward_dir = (color == :white) ? -1 : 1
+      back_dir = (color == :white) ? 1 : -1
     else
       forward_dir = (color == :white) ? 1 : -1
+      back_dir = (color == :white) ? -1 : 1
     end
 
     i,j = @location
     slides = [[i + forward_dir, j - 1], [i + forward_dir, j + 1]]
+    if king == true
+      slides << [i + back_dir, j - 1]
+      slides << [i + back_dir, j + 1]
+    end
+    p slides
     slides.each do |new_location|
       next unless valid_pos?(new_location)
 
@@ -46,8 +53,13 @@ class Piece
   def jumper_helper(board)
     moves = []
     forward_dir = (color == :white) ? 1 : -1
+    back_dir = (color == :white) ? -1 : 1
     i,j = @location
     slides = [[i + forward_dir, j - 1], [i + forward_dir, j + 1]]
+    if king == true
+      slides << [i + back_dir, j - 1]
+      slides << [i + back_dir, j + 1]
+    end
     slides.each do |new_location|
       next unless valid_pos?(new_location)
       moves << new_location unless board[new_location[0]][new_location[1]].nil?
