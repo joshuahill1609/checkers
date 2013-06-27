@@ -17,6 +17,9 @@ Run the checkers.rb file on the command line.
 
 My notes:
 
+#general
+  #add the rest of the pieces
+
 #class Board
   !Builds board
   !places pieces to start
@@ -43,4 +46,9 @@ My notes:
     !move_sequence
 
 #class Player
-  !gets move from user
+  !gets move from user in a1 b2 format
+  !convert input to code speak
+
+#class Checkers
+  !start game
+  #run game loop

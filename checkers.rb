@@ -8,8 +8,8 @@ class Checkers
     @player1 = Player.new(player1, :red)
     @player2 = Player.new(player2, :white)
     @turn = :red
-    @board = Board.new
-    play_game
+    #@board = Board.new
+    #play_game
   end
 
   def play_game

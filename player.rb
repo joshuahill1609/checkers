@@ -14,6 +14,9 @@ class Player
     move = process_move(input)
   end
 
+
+  private
+
   def process_move(input)
     return input.first if input.include?("undo")
     moves = []
@@ -21,6 +24,5 @@ class Player
     input.each {|e| moves << e.split('')}
       moves.map {|y,x| [(x.to_i - POSITIONS.length).abs, POSITIONS[y]]}
   end
-
 
 end

@@ -55,6 +55,13 @@ class Piece
     moves
   end
 
+  def make_king
+    if color == :red
+      @king = true if location[0] == 0
+    else
+      @king = true if location[0] == 7
+    end
+  end
 
   private
 

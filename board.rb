@@ -71,7 +71,8 @@ class Board
       piece.location = [a,b]
       @rows[a][b] = piece
     end
-
+    #checks if moved piece should be kinged, if so sets king to true
+    piece.make_king
     if jumped
       #go_again unless (@rows[a][b]).jump_moves(@rows).nil?
     end
