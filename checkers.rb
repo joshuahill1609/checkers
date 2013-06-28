@@ -5,7 +5,10 @@ require_relative 'piece.rb'
 class Checkers
 
   def initialize(player1, player2)
-    @player1 = Player.new(player1, :red)
+    @player1 = Player.new(player1, :red) #REV: storing your players in a hash 
+                                        # with their colors as keys 
+                                        # makes it much easier to switch 
+                                        # between them
     @player2 = Player.new(player2, :white)
     @turn = :red
     @board = Board.new
@@ -16,7 +19,8 @@ class Checkers
     #ask for input
     #make move
     #repeat until win
-    win = false
+    win = false  # win is easy to implement. just see if board has an empty
+                 # array of a single color
     until win
       @board.display_board
       if @turn == :red
@@ -31,6 +35,7 @@ class Checkers
       @board.display_board
     end
   end
+  #REV: nice short play_game method, and excellent short checkers class!
 
 end
 

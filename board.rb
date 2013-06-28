@@ -13,7 +13,7 @@ class Board
 
   #prints the board
   def display_board
-    `clear`
+    `clear` #REV: What does this do??
     print "   "
     ('a'..'h').each {|c| print " #{c}  "} # print column headers
     print "\n"
@@ -24,6 +24,7 @@ class Board
            print "    ".colorize(:background => ((col_ind+row_ind).odd? ? :black : :red))
         else # print pieces
           print "  ● ".colorize(:color => elem.color, :background => ((col_ind+row_ind).odd? ? :black : :red))
+          #REV: Lines are too long. Lines should never exceed 80 characters     
         end
       end
       puts ""
@@ -46,7 +47,7 @@ class Board
     all_possible_moves = piece.slide_moves(@rows) + piece.jump_moves(@rows)
 
     unless !all_possible_moves.include?(destination)#change to throw error
-
+      #REV: unless followed by ! is the same as "if" without it
       jump = piece.jump_moves(@rows)
       if jump.include?(destination)
         jumped = true
@@ -82,7 +83,7 @@ class Board
   private
 
   #Initializes the board
-  def starting_board(fill_board)
+  def starting_board(fill_board)  #REV: Nice and short!
     @rows = Array.new(8) {Array.new(8)}
 
     if fill_board

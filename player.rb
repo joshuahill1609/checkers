@@ -1,6 +1,6 @@
 class Player
   POSITIONS = Hash[('a'..'h').to_a.zip((0..7).to_a)]
-
+  #REV: this gives you an array with strings and integers, which isn't great
   attr_reader :name, :color
 
   def initialize(name, color)
@@ -9,8 +9,8 @@ class Player
   end
 
   def input_move
-    print "#{@color.capitalize}'s move (e.g. e6 f4): "
-    input = gets.chomp.downcase.split(" ")
+    print "#{@color.capitalize}'s move (e.g. e6 f4): " 
+    input = gets.chomp.downcase.split(" ") #REV processing input here, and then calling method called process input. Maybe that should do the splitting?
     move = process_move(input)
   end
 
@@ -21,7 +21,7 @@ class Player
     return input.first if input.include?("undo")
     moves = []
 
-    input.each {|e| moves << e.split('')}
+    input.each {|e| moves << e.split('')} #REV: moves = input.map {|e| e.split("")}
       moves.map {|y,x| [(x.to_i - POSITIONS.length).abs, POSITIONS[y]]}
   end
 
